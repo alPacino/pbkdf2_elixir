@@ -74,6 +74,7 @@ defmodule Pbkdf2.Base do
       Keyword.get(opts, :format, :modular),
       case opts[:digest] do
         :sha256 -> {:sha256, opts[:length] || 32}
+        digest when not is_nil(digest) -> {digest, opts[:length] || 32}
         _ -> {:sha512, opts[:length] || 64}
       end
     }
