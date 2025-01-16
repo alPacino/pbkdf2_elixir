@@ -1,9 +1,9 @@
 defmodule Pbkdf2.Tools do
   @moduledoc false
 
-  use Bitwise
+  import Bitwise
 
-  @allowed_chars 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+  @allowed_chars ~c"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
   def get_random_string(len, allowed_chars \\ @allowed_chars) do
     :crypto.rand_seed()
